@@ -22,8 +22,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String userName = '혜원';
-    const String appBarTitle = '$userName`s Tasks';
+    String userName = '혜원';
+    String appBarTitle = '$userName`s Tasks';
 
     return Scaffold(
       backgroundColor: Colors.grey,
@@ -36,15 +36,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
           margin: const EdgeInsets.all(20),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [NoTodo()],
-          ),
+          child: Column(children: [NoTodo(appBarTitle), SizedBox(width: 12)]),
         ),
       ),
     );
