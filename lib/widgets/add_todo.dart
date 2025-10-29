@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_assignment3_re_todoapp/widgets/todo_class.dart';
+import 'package:flutter_assignment3_todoapp/widgets/todo_class.dart';
 
 class AddTodo extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class _AddTodoState extends State<AddTodo> {
         description: description,
         isFavorite: isFavorite,
       );
-      Navigator.of(context).pop(input); //왜 그냥 .pop아니고 .of().pop()인지
+      Navigator.of(context).pop(input);
     } else {
       showCupertinoDialog(
         context: context,
@@ -34,7 +34,7 @@ class _AddTodoState extends State<AddTodo> {
             actions: [
               CupertinoDialogAction(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pop(); //뒤로 가기
                 },
                 child: Text("확인"),
               ),

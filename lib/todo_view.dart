@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignment3_todoapp/widgets/todo_class.dart';
+import 'package:flutter_assignment3_todoapp/widgets/todo_list_item.dart';
 
 class TodoView extends StatelessWidget {
-  TodoView({required this.toDo})
+  TodoView({required this.toDos});
 
-  final TodoClass toDo;
+  final List<TodoClass> toDos;
+  //list index로 데이터 가져와서 화면에 리스트업하기
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(12),
+    print(toDos.length);
+    return ListView.builder(
+      //todos list length 만큼 todolistitem반복
+      //todos list index에 해당하는 내용 넣기
+      itemCount: toDos.length,
+      itemBuilder: (context, i) => TodoListItem(
+        title: toDos[i].title,
+        isDone: toDos[i].isDone,
+        isFavorite: toDos[i].isFavorite,
       ),
-      child: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle, 
-              border: Border.all(color: Theme.of(context).dividerColor),
-            ),
-            child: Icon(Icons.check),
-          ),
-          Text("sdfsd"), 
-          Icon(Icons.star_border),
-        ]),
     );
   }
 }
